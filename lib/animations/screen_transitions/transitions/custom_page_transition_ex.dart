@@ -39,6 +39,11 @@ class CustomPageTransitionEx extends StatelessWidget {
               '회전 전환',
               () => _navigateWithRotationTransition(context),
             ),
+            _buildTransitionButton(
+              context,
+              '슬라이드 + 페이드 전환',
+              () => _navigateWithSlideAndFade(context),
+            ),
           ],
         ),
       ),
@@ -57,6 +62,7 @@ class CustomPageTransitionEx extends StatelessWidget {
     );
   }
 
+  /// 슬라이드 전환
   void _navigateWithSlideTransition(BuildContext context) {
     Navigator.push(
       context,
@@ -67,7 +73,7 @@ class CustomPageTransitionEx extends StatelessWidget {
               color: Colors.green,
             ),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
-          const begin = Offset(1.0, 0.0);
+          const begin = Offset(0, 1.0);
           const end = Offset.zero;
           const curve = Curves.easeInOut;
 
@@ -83,6 +89,7 @@ class CustomPageTransitionEx extends StatelessWidget {
     );
   }
 
+  /// 페이드 전환
   void _navigateWithFadeTransition(BuildContext context) {
     Navigator.push(
       context,
@@ -99,6 +106,7 @@ class CustomPageTransitionEx extends StatelessWidget {
     );
   }
 
+  /// 스케일 전환
   void _navigateWithScaleTransition(BuildContext context) {
     Navigator.push(
       context,
@@ -115,6 +123,7 @@ class CustomPageTransitionEx extends StatelessWidget {
     );
   }
 
+  /// 회전 전환
   void _navigateWithRotationTransition(BuildContext context) {
     Navigator.push(
       context,
@@ -126,6 +135,41 @@ class CustomPageTransitionEx extends StatelessWidget {
             ),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return RotationTransition(turns: animation, child: child);
+        },
+      ),
+    );
+  }
+
+  /// 슬라이드 + 페이드 전환 (천천히)
+  void _navigateWithSlideAndFade(BuildContext context) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            CustomPageTransitionDetailEx(
+              title: '슬라이드 + 페이드 전환',
+              color: Colors.yellow,
+            ),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          // 슬라이드
+          var slideTween = Tween<Offset>(
+            begin: Offset(0.0, 1.0),
+            end: Offset.zero,
+          ).chain(CurveTween(curve: Curves.easeOut));
+
+          // ⭐️ 페이드: 50% 후에 시작!
+          var fadeTween = Tween<double>(
+            begin: 0.0,
+            end: 1.0,
+          ).chain(CurveTween(curve: Interval(0.5, 1, curve: Curves.easeIn)));
+
+          return SlideTransition(
+            position: animation.drive(slideTween),
+            child: FadeTransition(
+              opacity: animation.drive(fadeTween),
+              child: child,
+            ),
+          );
         },
       ),
     );
