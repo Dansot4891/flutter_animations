@@ -3,6 +3,8 @@ import 'package:flutter_animations/animations/expilcit/animated_container/animat
 import 'package:flutter_animations/animations/expilcit/animated_default_text_style/animated_default_text_style_ex.dart';
 import 'package:flutter_animations/animations/expilcit/animated_opacity/animated_opacity_ex.dart';
 import 'package:flutter_animations/animations/expilcit/animated_positioned/animated_positioned_ex.dart';
+import 'package:flutter_animations/animations/expilcit/animated_scale/animated_scale_ex.dart';
+import 'package:flutter_animations/animations/expilcit/animated_rotation/animated_rotation_ex.dart';
 import 'package:flutter_animations/animations/expilcit/tween_animation_builder/tween_animation_builder_ex.dart';
 import 'package:flutter_animations/animations/implicit/animated_builder/animated_builder_ex.dart';
 import 'package:flutter_animations/animations/implicit/animation/tween/opacity_ex.dart';
@@ -32,6 +34,8 @@ class AnimationPage extends StatelessWidget {
             ),
             textButton(context, 'AnimatedOpacityEx', AnimatedOpacityEx()),
             textButton(context, 'AnimatedPositionedEx', AnimatedPositionedEx()),
+            textButton(context, 'AnimatedScaleEx', AnimatedScaleEx()),
+            textButton(context, 'AnimatedRotationEx', AnimatedRotationEx()),
             textButton(
               context,
               'TweenAnimationBuilderEx',
