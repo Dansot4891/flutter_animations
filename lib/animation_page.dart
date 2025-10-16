@@ -4,6 +4,8 @@ import 'package:flutter_animations/animations/expilcit/animated_default_text_sty
 import 'package:flutter_animations/animations/expilcit/animated_opacity/animated_opacity_ex.dart';
 import 'package:flutter_animations/animations/expilcit/animated_positioned/animated_positioned_ex.dart';
 import 'package:flutter_animations/animations/expilcit/tween_animation_builder/tween_animation_builder_ex.dart';
+import 'package:flutter_animations/animations/implicit/animated_builder/animated_builder_ex.dart';
+import 'package:flutter_animations/animations/implicit/animation_controller/animation_controller_ex.dart';
 
 class AnimationPage extends StatelessWidget {
   const AnimationPage({super.key});
@@ -17,62 +19,41 @@ class AnimationPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => AnimatedContainerEx(),
-                  ),
-                );
-              },
-              child: Text('AnimatedContainerEx'),
+            textButton(context, 'AnimatedContainerEx', AnimatedContainerEx()),
+            textButton(
+              context,
+              'AnimatedDefaultTextStyleEx',
+              AnimatedDefaultTextStyleEx(),
             ),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => AnimatedDefaultTextStyleEx(),
-                  ),
-                );
-              },
-              child: Text('AnimatedDefaultTextStyleEx'),
+            textButton(context, 'AnimatedOpacityEx', AnimatedOpacityEx()),
+            textButton(context, 'AnimatedPositionedEx', AnimatedPositionedEx()),
+            textButton(
+              context,
+              'TweenAnimationBuilderEx',
+              TweenAnimationBuilderEx(),
             ),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => AnimatedOpacityEx()),
-                );
-              },
-              child: Text('AnimatedOpacityEx'),
+            Divider(),
+            textButton(
+              context,
+              'AnimationControllerEx',
+              AnimationControllerEx(),
             ),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => AnimatedPositionedEx(),
-                  ),
-                );
-              },
-              child: Text('AnimatedPositionedEx'),
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => TweenAnimationBuilderEx(),
-                  ),
-                );
-              },
-              child: Text('TweenAnimationBuilderEx'),
-            ),
+            textButton(context, 'AnimatedBuilderEx', AnimatedBuilderEx()),
           ],
         ),
       ),
+    );
+  }
+
+  TextButton textButton(BuildContext context, String text, Widget widget) {
+    return TextButton(
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => widget),
+        );
+      },
+      child: Text(text, style: TextStyle(fontSize: 16, color: Colors.black)),
     );
   }
 }
