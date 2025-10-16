@@ -3,6 +3,7 @@ import 'package:flutter_animations/animations/expilcit/animated_container/animat
 import 'package:flutter_animations/animations/expilcit/animated_default_text_style/animated_default_text_style_ex.dart';
 import 'package:flutter_animations/animations/expilcit/animated_opacity/animated_opacity_ex.dart';
 import 'package:flutter_animations/animations/expilcit/animated_positioned/animated_positioned_ex.dart';
+import 'package:flutter_animations/animations/expilcit/tween_animation_builder/tween_animation_builder_ex.dart';
 
 class AnimationPage extends StatelessWidget {
   const AnimationPage({super.key});
@@ -57,6 +58,17 @@ class AnimationPage extends StatelessWidget {
                 );
               },
               child: Text('AnimatedPositionedEx'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => TweenAnimationBuilderEx(),
+                  ),
+                );
+              },
+              child: Text('TweenAnimationBuilderEx'),
             ),
           ],
         ),

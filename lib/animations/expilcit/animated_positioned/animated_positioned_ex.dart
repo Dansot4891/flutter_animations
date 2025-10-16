@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 /// AnimatedPositioned 사용 예제
@@ -35,8 +37,8 @@ class _AnimatedPositionedExState extends State<AnimatedPositionedEx> {
                     duration: Duration(milliseconds: 500),
                     curve: Curves.easeInOut,
                     // 위치 변경
-                    top: isMoved ? 200 : 50,
-                    left: isMoved ? 200 : 50,
+                    top: isMoved ? Random().nextDouble() * 300 : 50,
+                    left: isMoved ? Random().nextDouble() * 300 : 50,
                     child: Container(
                       width: 100,
                       height: 100,
