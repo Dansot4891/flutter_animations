@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+/// AnimatedContainer 사용 예제
+/// 내부 속성이 변화되면 애니메이션 효과를 줄 수 있는 컨테이너
 class AnimatedContainerEx extends StatefulWidget {
+  const AnimatedContainerEx({super.key});
   @override
   State<AnimatedContainerEx> createState() => _AnimatedContainerExState();
 }
@@ -35,20 +38,13 @@ class _AnimatedContainerExState extends State<AnimatedContainerEx> {
                 decoration: BoxDecoration(
                   color: isExpanded ? Colors.red : Colors.blue,
                   borderRadius: BorderRadius.circular(isExpanded ? 150 : 12),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black26,
-                      blurRadius: isExpanded ? 20 : 10,
-                      offset: Offset(0, isExpanded ? 10 : 5),
-                    ),
-                  ],
                 ),
                 child: Center(
                   child: Text(
                     isExpanded ? '큰 원!' : '작은 박스',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: isExpanded ? 24 : 16,
+                      fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -57,38 +53,6 @@ class _AnimatedContainerExState extends State<AnimatedContainerEx> {
             ),
 
             SizedBox(height: 40),
-
-            // 설명 박스
-            Container(
-              margin: EdgeInsets.all(20),
-              padding: EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: Colors.amber[50],
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: Colors.amber, width: 2),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    '💡 AnimatedContainer 핵심',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.amber[900],
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Text(
-                    '• duration: 애니메이션 지속 시간\n'
-                    '• curve: 애니메이션 속도 곡선\n'
-                    '• setState()로 값만 바꾸면 자동 애니메이션!\n'
-                    '• 위 박스를 탭해보세요!',
-                    style: TextStyle(fontSize: 14, color: Colors.amber[900]),
-                  ),
-                ],
-              ),
-            ),
           ],
         ),
       ),
