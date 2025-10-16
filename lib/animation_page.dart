@@ -5,7 +5,12 @@ import 'package:flutter_animations/animations/expilcit/animated_opacity/animated
 import 'package:flutter_animations/animations/expilcit/animated_positioned/animated_positioned_ex.dart';
 import 'package:flutter_animations/animations/expilcit/tween_animation_builder/tween_animation_builder_ex.dart';
 import 'package:flutter_animations/animations/implicit/animated_builder/animated_builder_ex.dart';
+import 'package:flutter_animations/animations/implicit/animation/tween/opacity_ex.dart';
+import 'package:flutter_animations/animations/implicit/animation/tween/rotate_ex.dart';
 import 'package:flutter_animations/animations/implicit/animation_controller/animation_controller_ex.dart';
+import 'package:flutter_animations/animations/implicit/animation/tween/tween_ex.dart';
+import 'package:flutter_animations/animations/implicit/animation/tween/color_tween_ex.dart';
+import 'package:flutter_animations/animations/implicit/animation/curve/curve_ex.dart';
 
 class AnimationPage extends StatelessWidget {
   const AnimationPage({super.key});
@@ -39,6 +44,11 @@ class AnimationPage extends StatelessWidget {
               AnimationControllerEx(),
             ),
             textButton(context, 'AnimatedBuilderEx', AnimatedBuilderEx()),
+            textButton(context, 'TweenEx', TweenEx()),
+            textButton(context, 'ColorTweenEx', ColorTweenEx()),
+            textButton(context, 'CurveEx', CurveEx()),
+            textButton(context, 'OpacityEx', OpacityEx()),
+            textButton(context, 'RotateEx', RotateEx()),
           ],
         ),
       ),
