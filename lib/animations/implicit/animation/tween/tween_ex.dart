@@ -68,7 +68,7 @@ class _TweenExState extends State<TweenEx> with SingleTickerProviderStateMixin {
           AnimatedBuilder(
             animation: _opacityAnimation,
             builder: (context, child) {
-              return Container(
+              return SizedBox(
                 width: _opacityAnimation.value,
                 height: _opacityAnimation.value,
               );
